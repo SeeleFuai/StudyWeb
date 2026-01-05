@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -24,7 +23,7 @@ body {
 }
 
 /* Sidebar Styles */
-.side-bar {
+.sidebar {
     width: var(--sidebar-width);
     background-color: white;
     padding: 20px;
@@ -100,13 +99,13 @@ body {
     width: 100%;
 }
 
-.user-prof {
+.user-profile {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.user-avt {
+.user-avatar {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -155,7 +154,7 @@ body {
     color: #64748b;
 }
 
-.card-content {
+.card-value {
     font-size: 24px;
     font-weight: bold;
     color: var(--text-color);
@@ -283,7 +282,7 @@ tr:hover {
     margin-bottom: 20px;
 }
 
-.cancel-btn {
+.close-btn {
     background: none;
     border: none;
     font-size: 20px;
@@ -408,7 +407,7 @@ textarea:focus {
     outline: none;
 }
 
-.loading {
+.loading-spinner {
     display: none;
     position: fixed;
     top: 0;
@@ -421,7 +420,7 @@ textarea:focus {
     align-items: center;
 }
 
-.loading.active {
+.loading-spinner.active {
     display: flex;
 }
 

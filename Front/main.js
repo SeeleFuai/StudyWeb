@@ -1,16 +1,15 @@
 const API_BASE_URL = "http://localhost:3000";
-
 let students = [];
 let courses = [];
-let currentSection = 'dashboard';
+let currentSection = "dashboard";
 let editingId = null;
 let editingCourseId = null;
-let deleteType = "" ;//student or course
+let deleteType = ""; // 'student' or 'course'
 let deleteId = null;
 
-const studentTableBody = document.getElementById('studentTableBody');
-const allstudentTableBody = document.getElementById('AllstudentTableBody');
-const courseTableBody = document.getElementById('studentTableBody');
+const studentTableBody = document.getElementById("studentTableBody");
+const allStudentsTableBody = document.getElementById("allStudentsTableBody");
+const courseTableBody = document.getElementById("courseTableBody");
 const studentModal = document.getElementById("studentModal");
 const courseModal = document.getElementById("courseModal");
 const studentForm = document.getElementById("studentForm");
@@ -18,91 +17,89 @@ const courseForm = document.getElementById("courseForm");
 const searchInput = document.querySelector(".search-bar input");
 const loadingSpinner = document.querySelector(".loading-spinner");
 
-
-//init dashboard
-
-document.addEventListener("DOMContentLoaded", async () =>{
-    initEvtListeners();
-    await checkAndLoadData();
+// Initialize the dashboard
+document.addEventListener("DOMContentLoaded", async () => {
+  initializeEventListeners();
+  await checkAndLoadData();
 });
 
+// Initialize all event listeners
+function initializeEventListeners() {
+  // Form submissions
+  studentForm.addEventListener("submit", handleFormSubmit);
+  courseForm.addEventListener("submit", handleCourseFormSubmit);
 
+  // Search functionality
+  searchInput.addEventListener("input", handleSearch);
 
-function initEvtListeners(){
-    // form submit
-    studentForm.addEventListener("submit",handleFormSubmit);
-    studentForm.addEventListener("submit",handleCourseFormSubmit);
-
-    // search func
-    searchInput.addEventListener("input",handleSearch);
-
-    // navigation
-    document.querySelectorAll('.nav-item').forEach((item) =>{
-        item.addEventListener('click',()=>{
-            const section = item.dataset.section;
-            navigateTo(section);
-        })
+  // Navigation
+  document.querySelectorAll(".nav-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      const section = item.dataset.section;
+      navigateToSection(section);
     });
+  });
 
-    //outside click
-    window.onclick = (event)=> {
-        if(event.target === studentModal) closeModal();
-        if(event.target === courseModal) closeCourseModal();
-    };
-
+  // Modal outside click handlers
+  window.onclick = (event) => {
+    if (event.target === studentModal) closeModal();
+    if (event.target === courseModal) closeCourseModal();
+  };
 }
 
-
-//load and check data
+// Initial data load and checks
 async function checkAndLoadData() {
-    showLoading();
-    try {
-        await loadCourses();
+  showLoading();
+  try {
+    await loadCourses();
 
-        // Check if we have any courses
-        if (courses.length === 0) {
-            showNotification("Please add courses before manage students");
-            navigateTo("courses");
-            openCourseModal();
-            return;
-        }
-        await Promise.all([loadStudents(), updateDashboardStats()]);
-
-    } catch (error) {
-        console.error("Error during initialization:", error);
-        showNotification("Error initializing application", "error");
-    } finally {
-        hideLoading();
+    // Check if we have any courses
+    if (courses.length === 0) {
+      showNotification(
+        "Please add courses before managing students",
+        "warning"
+      );
+      navigateToSection("courses");
+      openCourseModal();
+      return;
     }
+
+    await Promise.all([loadStudents(), updateDashboardStats()]);
+  } catch (error) {
+    console.error("Error during initialization:", error);
+    showNotification("Error initializing application", "error");
+  } finally {
+    hideLoading();
+  }
 }
 
 // Navigation functions
-function navigateTo(section) {
-    currentSection = section;
+function navigateToSection(section) {
+  currentSection = section;
 
-    // Update active nav item
-    document.querySelectorAll(".nav-item").forEach((item) => {
-        item.classList.remove("active");
-        if (item.dataset.section === section) {
-        item.classList.add("active");
-        }
-    });
-
-    // Hide all sections
-    document.querySelectorAll(".section").forEach((section) => {
-        section.classList.remove("active");
-    });
-
-    // Show selected section
-    document.getElementById(`${section}Section`).classList.add("active");
-
-    // Refresh data when switching sections
-    if (section === "courses") {
-        loadCourses();
-    } else if (section === "students" || section === "dashboard") {
-        loadStudents();
-        updateDashboardStats();
+  // Update active nav item
+  document.querySelectorAll(".nav-item").forEach((item) => {
+    item.classList.remove("active");
+    if (item.dataset.section === section) {
+      item.classList.add("active");
     }
+  });
+
+  // Hide all sections
+  document.querySelectorAll(".section").forEach((section) => {
+    section.classList.remove("active");
+  });
+
+  // Show selected section
+  document.getElementById(`${section}Section`).classList.add("active");
+
+  // Refresh data when switching sections
+  if (section === "courses") {
+    loadCourses();
+  } else if (section === "students" || section === "dashboard") {
+    loadStudents();
+    updateDashboardStats();
+  }
 }
 
 // API Functions
@@ -120,8 +117,9 @@ async function updateDashboardStats() {
       stats.activeCourses.toLocaleString();
     document.querySelector(".card:nth-child(3) .card-value").textContent =
       stats.graduates.toLocaleString();
-    document.querySelector(".card:nth-child(4) .card-value").textContent = 
-      `${stats.successRate}%`;
+    document.querySelector(
+      ".card:nth-child(4) .card-value"
+    ).textContent = `${stats.successRate}%`;
   } catch (error) {
     console.error("Error updating dashboard stats:", error);
     showNotification("Error updating statistics", "error");
@@ -353,7 +351,7 @@ async function handleCourseFormSubmit(e) {
 
 // UI Rendering Functions
 function renderStudentTables(studentsToRender) {
-  const tables = [studentTableBody, allstudentTableBody];
+  const tables = [studentTableBody, allStudentsTableBody];
 
   tables.forEach((table) => {
     if (!table) return; // Skip if table doesn't exist
@@ -467,12 +465,13 @@ function renderCourseTable(coursesToRender) {
 
 // Modal Operations
 function openModal() {
+  console.log("ok");
   if (courses.length === 0) {
     showNotification(
       "Please add at least one course before adding students",
       "warning"
     );
-    navigateTo("courses");
+    navigateToSection("courses");
     openCourseModal();
     return;
   }
@@ -520,12 +519,17 @@ async function editStudent(id) {
     document.getElementById("studentName").value = student.name;
     document.getElementById("studentEmail").value = student.email;
     document.getElementById("studentCourse").value = student.course;
-    document.getElementById("enrollmentDate").value = formatDateForInput(student.enrollmentDate);
+    document.getElementById("enrollmentDate").value = formatDateForInput(
+      student.enrollmentDate
+    );
 
     studentModal.style.display = "flex";
   } catch (error) {
     console.error("Error loading student for edit:", error);
-    showNotification(error.message || "Error loading student data","error");
+    showNotification(
+      error.message || "Error loading student data",
+      "error"
+    );
   } finally {
     hideLoading();
   }
@@ -544,9 +548,11 @@ async function editCourse(id) {
     const course = await response.json();
 
     editingCourseId = id;
-    document.getElementById("courseModalTitle").textContent = "Edit Course";
+    document.getElementById("courseModalTitle").textContent =
+      "Edit Course";
     document.getElementById("courseName").value = course.name;
-    document.getElementById("courseDescription").value = course.description;
+    document.getElementById("courseDescription").value =
+      course.description;
     document.getElementById("courseDuration").value = course.duration;
     document.getElementById("courseStatus").value = course.status;
 
