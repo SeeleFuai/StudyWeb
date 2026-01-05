@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudyWeb</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="./main.css">
+
 </head>
 
 
@@ -21,15 +22,15 @@
                 <i class="fas fa-chart-pie"></i>
                 DashBoard
             </div>
-            <div class="nav-item active" data-section="Courses">
+            <div class="nav-item" data-section="Courses">
                 <i class="fa-solid fa-book"></i>
                 Courses
             </div>
-            <div class="nav-item active" data-section="Reports">
+            <div class="nav-item" data-section="Reports">
                 <i class="fa-solid fa-receipt"></i>
                 Reports
             </div>
-            <div class="nav-item active" data-section="DashBoards">
+            <div class="nav-item" data-section="DashBoards">
                 <i class="fa-solid fa-gear"></i>
                 Settings
             </div>
@@ -38,8 +39,10 @@
         <!-- Main content -->
         <div class="main-content">
             <div class="header">
-                <i class="fa fa-search" aria-hidden="true"></i>
-                <input type="text" placeholder="Search student...">
+                <div class="search-bar">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="text" placeholder="Search student...">
+                </div>
             
                 <div class="user-prof">
                     <div class="user-avt">
@@ -51,7 +54,7 @@
 
             <!-- dashboard section -->
             <div id="dashBoard" class="section dashboard active">
-                <div class="dashboard-card">
+                <div class="dashboard-cards">
                     <div class="card">
                         <div class="card-header">
                             <div class="card-icon">
@@ -141,7 +144,7 @@
                             </tr>
                         </thead>
 
-                        <tbody id="studentTableBody">
+                        <tbody id="AllstudentTableBody">
                             <!-- auto be injected -->
                         </tbody>
                     </table>
@@ -167,7 +170,7 @@
                             </tr>
                         </thead>
 
-                        <tbody id="studentTableBody">
+                        <tbody id="courseTableBody">
                             <!-- auto be injected -->
                         </tbody>
                     </table>
@@ -262,9 +265,16 @@
                     </form>
                 </div>
             </div>
+            
+        
 
 
         </div>
+        <!-- Loading -->
+         <div class="loading">
+            <div class="spinner"></div>
+         </div>
     </div>
 </body>
+    <link rel="stylesheet" href="./main.js">
 </html>

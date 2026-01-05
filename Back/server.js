@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-mongooes.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/studyweb')
+mongooes.connect(process.env.MONGODB_URL || 'mongodb://localhost:27017/studyweb')
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.log(err));
     
@@ -314,7 +314,7 @@ app.get('api/students/:id', async(req,res) => {
 
 
 // ***************************** DASHBOARD *****************************
-app.get('/api/dashboard/starts', async(req, res) => {
+app.get('/api/dashboard/stats', async(req, res) => {
     try {
         const stats = await getDashboardStats();
         logger.info('Dashboard stats fetched successfully:', stats);
