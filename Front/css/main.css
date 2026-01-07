@@ -5,54 +5,42 @@
     box-sizing: border-box;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
+:root{
+    --transition: 0.3s ease-in-out;
+    /* --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --background-color: #f1f5f9;
+    --text-color: #1e293b; */
+}
 
 .theme-light{
-    --background-color: #F0F5F9;
-    --sidebar_1: #F9F7EC;
-    --sidebar_2: #b1ece3;
-
-    --logo: #769FCD;
-    --user-avt:#769FCD;
-    --nav-item: #769FCD;
-    --nav-item-hover:#769FCD    ;
-    --icon: #B9D7EA;
-    --text: #1E2022;
-    --edit-btn: #2563eb ;
-    /* --button: ; */
-
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --text-color: #1e293b;
-
-
-
-
+    --color-button: hsl(219, 60%, 39%);
+    --sidebar: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+    
+    --color-primary: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+    --color-secondary: hsl(180, 51%, 22%);
+    --color-tertiary: hsl(219, 60%, 39%);
+    --color-accent: hsl(120, 80%, 20%);
     --sidebar-width: 250px;
 }
 
 .theme-dark{
-    background-color: #2B2E4A;
-    --sidebar_1: #C06C84;
-    --sidebar_2: #6C5B7B;
-
-    --logo: #;
-    --user-avt:#;
-    --nav-item: #;
-    --nav-item-hover:#;
-    --icon: #2563eb;
-    --text: #F0F5F9;
-    --edit-btn: #2563eb ;
-
-    --primary-color: #E84545;
-    --secondary-color: #903749;
-    --text-color: #1e293b;
+    --sidebar:linear-gradient(rgb(19,34,57),rgb(19,34,57));
+    --color-primary: linear-gradient(to right, #2b2929 0%, black 100%);
+    
     --sidebar-width: 250px;
+
+
+    --color-primary: linear-gradient(hsl(217, 50%, 10%),hsl(217, 50%, 10%));
+    --color-secondary: hsl(217, 50%, 90%);
+    --color-tertiary: hsl(263, 65%, 45%);
+    --color-accent: hsl(157, 58%, 35%);
+    --color-second-panel: rgb(19,34,57);
 }
 
 
 body {
-    background-color: var(--background-color);
+    background-image: var(--color-primary);
 }
 
 .container {
@@ -66,9 +54,9 @@ body {
 /* Sidebar Styles */
 .sidebar {
     width: var(--sidebar-width);
-    background-image: linear-gradient( var(--sidebar_1), var(--sidebar_2));
+    background-image: var(--sidebar);
     padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 4px #00000030, 0px 12px 12px #00000015;;
     position: sticky;
     height: 100vh;
     transition: 0.3s ease;
@@ -89,7 +77,7 @@ body {
 {
     width: 40px;
     height: 40px;
-    background-color: var(--logo);
+    background-color: var(--color-tertiary);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -102,7 +90,7 @@ body {
     font-size: xx-large;
     align-items: center;
     justify-content: center;
-    color: var(--logo);
+    color: var(--color-tertiary);
     cursor: pointer;
 
 }
@@ -117,7 +105,7 @@ body {
 .logo {
     font-size: 20px;
     font-weight: bold;
-    color: var(--logo);
+    color: var(--color-tertiary);
     margin-bottom: 40px;
     display: flex;
     align-items: center;
@@ -132,19 +120,19 @@ body {
     cursor: pointer;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     gap: 10px;
-    color: var(--nav-item);
+    color: var(--color-secondary);
     transition: all 0.3s ease;
 }
 
 .nav-item:hover {
-    background-color: var(--nav-item-hover);
+    background-color: var(--color-tertiary);
     color: white;
+    transition: var(--transition)
 }
 
 .nav-item.active {
-    background-color: var(--nav-item-hover);
+    background-color: var(--color-tertiary);
     color: white;
 }
 
@@ -165,14 +153,14 @@ body {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
 }
 
 .search-bar {
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: var(--background-color);
+    background-color: var(--color-primary);
     padding: 10px 15px;
     border-radius: 8px;
     width: 300px;
@@ -195,7 +183,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: var(--user-avt);
+    background-color: var(--color-tertiary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -215,7 +203,7 @@ body {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
 }
 
 .card-header {
@@ -228,7 +216,7 @@ body {
 .card-icon {
     width: 40px;
     height: 40px;
-    background-color: var(--primary-color);
+    background-color: var(--color-tertiary);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -252,7 +240,7 @@ body {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
 }
 
 .table-header {
@@ -262,8 +250,9 @@ body {
     margin-bottom: 20px;
 }
 
+
 .add-student-btn {
-    background-color: var(--primary-color);
+    background-color: var(--color-accent);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -272,11 +261,14 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: background-color 0.3s ease;
+    transition: var(--transition);
+    box-shadow: 0 0 10px var(--color-accent);
 }
 
 .add-student-btn:hover {
-    background-color: var(--secondary-color);
+    /* background-color: var(--color-tertiary); */
+    box-shadow: 0 0 24px var(--color-accent);
+    transition: var(--transition);
 }
 
 table {
@@ -318,6 +310,21 @@ tr:hover {
     color: #991b1b;
 }
 
+
+.buttons > *{
+  cursor: pointer;
+  background: var(--colorbody);
+  text-decoration: none;
+  font: var(--links);
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: var(--colora);
+  transition: var(--transition);
+  }
+.buttons > *:hover{
+  transition: var(--transition);
+  }
+
 .action-buttons {
     display: flex;
     gap: 8px;
@@ -352,10 +359,12 @@ tr:hover {
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
+    transition: var(--transition);
 }
 
 .modal-content {
-    background-color: white;
+    background-color: var(--color-second-panel);
+    color: var(--color-secondary);
     padding: 30px;
     border-radius: 10px;
     width: 500px;
@@ -384,7 +393,7 @@ tr:hover {
 .form-group label {
     display: block;
     margin-bottom: 5px;
-    color: var(--text-color);
+    color: var(--color-secondary);
 }
 
 .form-group input,
@@ -398,22 +407,26 @@ tr:hover {
 
 .form-group input:focus,
 .form-group select:focus {
-    border-color: var(--primary-color);
+    border-color: var(--color-second-panel);
 }
 
 .submit-btn {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--color-tertiary);
+    color: var(--color-secondary);
     border: none;
+    font-size: 16px;
+    font-weight: bold;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
     margin-top: 20px;
+    transition: var(--transition);
+    box-shadow: 0 0 10px var(--color-tertiary);
 }
-
 .submit-btn:hover {
-    background-color: var(--secondary-color);
+    transition: var(--transition);
+    box-shadow: 0 0 24px var(--color-tertiary);
 }
 .notification {
     position: fixed;
@@ -422,7 +435,7 @@ tr:hover {
     padding: 15px 25px;
     color: white;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
     z-index: 1000;
     opacity: 1;
     transition: opacity 0.5s ease;
@@ -463,7 +476,7 @@ tr:hover {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
     margin-top: 20px;
 }
 
@@ -498,7 +511,7 @@ textarea {
 }
 
 textarea:focus {
-    border-color: var(--primary-color);
+    border-color: var(--color-primary);
     outline: none;
 }
 
