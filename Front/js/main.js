@@ -110,16 +110,20 @@ async function updateDashboardStats() {
 
     const stats = await response.json();
 
-    // Update dashboard cards
-    document.querySelector(".card:nth-child(1) .card-value").textContent =
-      stats.totalStudents.toLocaleString();
-    document.querySelector(".card:nth-child(2) .card-value").textContent =
-      stats.activeCourses.toLocaleString();
-    document.querySelector(".card:nth-child(3) .card-value").textContent =
-      stats.graduates.toLocaleString();
-    document.querySelector(
-      ".card:nth-child(4) .card-value"
-    ).textContent = `${stats.successRate}%`;
+    // Update dashboard cards //fix sau
+    (document.querySelectorAll(".card-value")[0]).textContent =
+      `${stats.graduates}%`;
+    document.querySelectorAll(".card-value")[1].textContent =
+      `${stats.successRate}%`;
+    document.querySelectorAll(".card-value")[2].textContent =
+      `${stats.totalStudents}`;
+    document.querySelectorAll(".card-value")[3].textContent =
+      `${stats.activeStudents}`;
+    document.querySelectorAll(".card-value")[4].textContent =
+      `${stats.activeCourses}`;
+    document.querySelectorAll(".card-value")[5].textContent = 
+      `${stats.totalCourses}`;
+    console.log(document.querySelectorAll(".card-value")[1]);
   } catch (error) {
     console.error("Error updating dashboard stats:", error);
     showNotification("Error updating statistics", "error");
@@ -447,14 +451,10 @@ function renderCourseTable(coursesToRender) {
           </span>
       </td>
       <td class="action-buttons">
-          <button class="action-btn edit-btn" onclick="editCourse('${
-            course._id
-          }')">
+          <button class="action-btn edit-btn" onclick="editCourse('${course._id}')">
               <i class="fas fa-edit"></i> Edit
           </button>
-          <button class="action-btn delete-btn" onclick="deleteCourse('${
-            course._id
-          }')">
+          <button class="action-btn delete-btn" onclick="deleteCourse('${course._id}')">
               <i class="fas fa-trash"></i> Delete
           </button>
       </td>
@@ -490,18 +490,17 @@ function closeModal() {
 
 function openCourseModal() {
   courseModal.style.display = "flex";
+  courseModal.style.zIndex = 999;
   editingCourseId = null;
   courseForm.reset();
   document.getElementById("courseModalTitle").textContent =
     "Add New Course";
 }
-
 function closeCourseModal() {
   courseModal.style.display = "none";
   editingCourseId = null;
   courseForm.reset();
 }
-
 // Update the editStudent function
 async function editStudent(id) {
   showLoading();
