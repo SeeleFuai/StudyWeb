@@ -9,7 +9,7 @@ new Swiper('.swiper', {
     allowTouchMove: true,
 
     slidesPerView: 'auto',
-    spaceBetween: 35,
+    spaceBetween: 70,
 
     pagination: {
         el: '.swiper-pagination',

@@ -6,36 +6,46 @@
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-:root {
-
-}
 
 .theme-light{
-    background-color: #ffffff;
+    --background-color: #F0F5F9;
     --sidebar_1: #F9F7EC;
     --sidebar_2: #b1ece3;
 
-    --icon: #2563eb;
-    --text: #1e293b;
+    --logo: #769FCD;
+    --user-avt:#769FCD;
+    --nav-item: #769FCD;
+    --nav-item-hover:#769FCD    ;
+    --icon: #B9D7EA;
+    --text: #1E2022;
+    --edit-btn: #2563eb ;
+    /* --button: ; */
 
     --primary-color: #2563eb;
     --secondary-color: #1e40af;
-    --background-color: #f1f5f9;
     --text-color: #1e293b;
+
+
+
+
     --sidebar-width: 250px;
 }
 
 .theme-dark{
-    background-color: #8b3a3a;
-    --sidebar_1: #F9F7EC;
-    --sidebar_2: #b1ece3;
+    background-color: #2B2E4A;
+    --sidebar_1: #C06C84;
+    --sidebar_2: #6C5B7B;
 
+    --logo: #;
+    --user-avt:#;
+    --nav-item: #;
+    --nav-item-hover:#;
     --icon: #2563eb;
-    --text: #1e293b;
+    --text: #F0F5F9;
+    --edit-btn: #2563eb ;
 
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --background-color: #f1f5f9;
+    --primary-color: #E84545;
+    --secondary-color: #903749;
     --text-color: #1e293b;
     --sidebar-width: 250px;
 }
@@ -56,22 +66,30 @@ body {
 /* Sidebar Styles */
 .sidebar {
     width: var(--sidebar-width);
-    background-image: linear-gradient( #F9F7EC, #b1ece3);
+    background-image: linear-gradient( var(--sidebar_1), var(--sidebar_2));
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     position: sticky;
     height: 100vh;
-    left: 0;
+    transition: 0.3s ease;
+    /* width: 50px; */
+    border-radius: 10px;
 
-    /* transform: translateX(-250px);
-    width: 50px; */
 }
+.sidebar.show{
+    top: 0;
+    /* margin-top: 15px; */
+    /* padding-top: 15px; */
+    width: 50px;
+    padding: 20px 5px;
+}
+
 
 .fa-caret-left
 {
     width: 40px;
     height: 40px;
-    background-color: var(--primary-color);
+    background-color: var(--logo);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -84,10 +102,11 @@ body {
     font-size: xx-large;
     align-items: center;
     justify-content: center;
-    color: var(--primary-color);
+    color: var(--logo);
     cursor: pointer;
 
 }
+
 
 .collapse-btn{
     border: none;
@@ -98,7 +117,7 @@ body {
 .logo {
     font-size: 20px;
     font-weight: bold;
-    color: var(--primary-color);
+    color: var(--logo);
     margin-bottom: 40px;
     display: flex;
     align-items: center;
@@ -113,18 +132,19 @@ body {
     cursor: pointer;
     display: flex;
     align-items: center;
+    /* justify-content: center; */
     gap: 10px;
-    color: var(--text-color);
+    color: var(--nav-item);
     transition: all 0.3s ease;
 }
 
 .nav-item:hover {
-    background-color: var(--primary-color);
+    background-color: var(--nav-item-hover);
     color: white;
 }
 
 .nav-item.active {
-    background-color: var(--primary-color);
+    background-color: var(--nav-item-hover);
     color: white;
 }
 
@@ -175,7 +195,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: var(--primary-color);
+    background-color: var(--user-avt);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -313,7 +333,7 @@ tr:hover {
 
 .edit-btn {
     background-color: #dbeafe;
-    color: var(--primary-color);
+    color: var(--edit-btn);
 }
 
 .delete-btn {

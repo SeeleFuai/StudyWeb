@@ -1,3 +1,14 @@
+.theme-light{
+  --swiper-pagination: #2563eb;
+  --swiper-btn: #2563eb;
+
+}
+
+.theme-dark{
+    --swiper-pagination: #E84545;
+    --swiper-btn: #E84545;
+}
+
 .swiper {
   width: 100%;
   height: 100%;
@@ -5,11 +16,16 @@
 
 .swiper-slide {
   width: 90%;
-  /* text-align: center; */
-  /* font-size: 18px; */
-  /* background: #444; */
   display: flex;
-  /* flex-direction: column */
   justify-content: center;
   align-items: center;
 }
+
+.swiper-pagination-bullet{
+  color: var(--swiper-pagination);
+  background-color: var(--swiper-btn);
+}
+.swiper-button-prev,.swiper-button-next{
+  color: var(--swiper-btn);
+}
+
