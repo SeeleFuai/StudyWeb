@@ -4,18 +4,26 @@ const cors = require("cors");
 require("dotenv").config();
 const morgan = require("morgan");
 const winston = require("winston");
+const path = require('path');
+const hbs = require('hbs');
+const { type } = require("os");
+const templatePath = path.join(__dirname,'../Front/html');
+
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
+app.set('view engine','hbs');
+app.set('views',templatePath);
 
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/student-management-app")
+  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/studyweb")
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
+  
 // Configure Winston Logger
 const logger = winston.createLogger({
   level: "info",
@@ -38,6 +46,13 @@ const logger = winston.createLogger({
 app.use(
   morgan(":method :url :status :response-time ms - :res[content-length]")
 );
+
+
+app.get('/',(req,res)=>{
+  res.render("login");
+});
+
+
 
 // Custom API Logger Middleware
 const apiLogger = (req, res, next) => {
@@ -73,6 +88,47 @@ app.use((err, req, res, next) => {
 
   res.status(500).json({ message: "Internal server error" });
 });
+
+
+// Schema for mongodb
+const LogInSchema = new mongoose.Schema(
+  {
+    gmail: {
+      type: String,
+      require: true,
+    },
+    password: {
+      type: String,
+      require: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const Login =  mongoose.model('Login',LogInSchema);
+// module.exports = Login;
+
+const SignUpSchema = new mongoose.Schema(
+  {
+    gmail: {
+      type: String,
+      require: true,
+    },
+    password: {
+      type: String,
+      require: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+
+);
+const SignUp =  mongoose.model('SignUp',SignUpSchema);
+// module.exports = SignUp;
+
 
 const studentSchema = new mongoose.Schema(
   {
@@ -126,12 +182,65 @@ const courseSchema = new mongoose.Schema(
             enum:["active", "inactive"],
             default: "active"
         }
-    },{
-        timestamps: true
+    },
+    {
+      timestamps: true,
     }
 );
 
 const Course  = mongoose.model("Course", courseSchema);
+
+//Login Routes
+
+app.get('/api/login',async(req,res)=>{
+  try{
+    const User = await Login.find().sort({gmail: 1});
+    logger.info(`Retrieved ${User.length} successfully`);
+    res.json(User);
+  } catch(error){
+    logger.error('failed fetching User');
+    res.status(500).json({message: error.message})
+  }
+});
+
+app.post('/api/login',(req,res)=>{
+
+  res.render("login");
+});
+
+//Sign Up Routes
+
+app.get('/api/signup', async(req,res)=>{
+  try{
+    const User = await SignUp.find().sort({gmail: 1});
+    logger.info(`Retrieved ${User.length} successfully`);
+    res.json(User);
+
+  } catch(error){
+    logger.error('failed fetching newUser');
+    res.status(500).json({message: error.message})
+  }
+
+});
+
+app.post('/api/signup',async (req,res)=>{
+  try{
+    const newUser = await SignUp(req.body);
+    logger.info(`New User Created successfully:`,{
+      gmail: newUser.gmail,
+      password: newUser.password,
+    });
+    res.status(201).json(newUser);
+    res.render("main");
+
+  } catch(error) {
+    logger.error('failed creating new User');
+    res.status(400).json({message: error.message})
+
+  }
+});
+
+
 
 //Course Routes
 

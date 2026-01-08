@@ -1,44 +1,4 @@
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-:root{
-    --transition: 0.3s ease-in-out;
-    /* --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --background-color: #f1f5f9;
-    --text-color: #1e293b; */
-}
-
-.theme-light{
-    --color-button: hsl(219, 60%, 39%);
-    --sidebar: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
-    
-    --color-primary: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
-    --color-secondary: hsl(180, 51%, 22%);
-    --color-tertiary: hsl(219, 60%, 39%);
-    --color-accent: hsl(120, 80%, 20%);
-    --sidebar-width: 250px;
-}
-
-.theme-dark{
-    --sidebar:linear-gradient(rgb(19,34,57),rgb(19,34,57));
-    --color-primary: linear-gradient(to right, #2b2929 0%, black 100%);
-    
-    --sidebar-width: 250px;
-
-
-    --color-primary: linear-gradient(hsl(217, 50%, 10%),hsl(217, 50%, 10%));
-    --color-secondary: hsl(217, 50%, 90%);
-    --color-tertiary: hsl(263, 65%, 45%);
-    --color-accent: hsl(157, 58%, 35%);
-    --color-second-panel: rgb(19,34,57);
-}
-
-
 body {
     background-image: var(--color-primary);
 }
