@@ -14,17 +14,18 @@ router.get('/login',async(req,res)=>{
 router.get('/signup',async(req,res)=>{
     // res.send('this is login page from user');
     res.render('user/signup');
-    console.log('this is user signup');
+    
 });
 
 
-router.post('/signup',async (req,res)=>{
-  try{
-    const newUser = new SignUp(req.body);
-    const savenewUser = await newUser.save();
-    res.json(savenewUser);
-  } catch(error) {
-    res.status(400).json({message: error.message})
+router.post('/signup',async(req,res)=>{
+  try {
+    const user = new SignUp(req.body);
+    const savedUser = await user.save();
+
+    res.json(savedUser);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
   }
 });
 

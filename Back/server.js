@@ -10,6 +10,7 @@ const { connect } = require("mongoose");
 const db = require("./db/db");
 
 app.use(cors());
+app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 // hbs set up
@@ -24,6 +25,8 @@ app.use(express.static("Front")); //default: public
 
 app.use(express.static(path.join(__dirname, '../Front')));
 app.use(express.static(path.join(__dirname, '../Back')));
+
+
 
 //DB
 app.use(
@@ -206,36 +209,23 @@ const Course  = mongoose.model("Course", courseSchema);
 
 // User Login Routes
 
-app.get('/user/login',async(req,res)=>{
-  try{
-    const User = await Login.find().sort({gmail: 1});
-    logger.info(`Retrieved ${User.length} successfully`);
-    res.json(User);
-  } catch(error){
-    logger.error('failed fetching User');
-    res.status(500).json({message: error.message})
-  }
-  // res.render('user/login');
-});
-
-app.post('/user/login',(req,res)=>{
-
-  res.render("login"); // do it later
-});
-
-//Sign Up Routes
-
-// app.get('/signup', async(req,res)=>{
+// app.get('/user/login',async(req,res)=>{
 //   try{
-//     const User = await SignUp.find().sort({gmail: 1});
+//     const User = await Login.find().sort({gmail: 1});
 //     logger.info(`Retrieved ${User.length} successfully`);
 //     res.json(User);
-
 //   } catch(error){
-//     logger.error('failed fetching newUser');
+//     logger.error('failed fetching User');
 //     res.status(500).json({message: error.message})
 //   }
+//   // res.render('user/login');
 // });
+
+// app.post('/user/login',(req,res)=>{
+
+//   res.render("login"); // do it later
+// });
+
 
 
 
