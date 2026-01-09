@@ -108,43 +108,43 @@ app.use((err, req, res, next) => {
 
 
 // Schema for mongodb
-const LogInSchema = new mongoose.Schema(
-  {
-    gmail: {
-      type: String,
-      require: true,
-    },
-    password: {
-      type: String,
-      require: true,
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
+// const LogInSchema = new mongoose.Schema(
+//   {
+//     gmail: {
+//       type: String,
+//       require: true,
+//     },
+//     password: {
+//       type: String,
+//       require: true,
+//     },
+//   },
+//   {
+//     timestamps:true
+//   }
+// );
 
-const Login =  mongoose.model('Login',LogInSchema);
-module.exports = Login;
+// const Login =  mongoose.model('Login',LogInSchema);
 
-const SignUpSchema = new mongoose.Schema(
-  {
-    gmail: {
-      type: String,
-      require: true,
-    },
-    password: {
-      type: String,
-      require: true,
-    },
-  },
-  {
-    timestamps: true,
-  }
+// const SignUpSchema = new mongoose.Schema(
+//   {
+//     gmail: {
+//       type: String,
+//       require: true,
+//     },
+//     password: {
+//       type: String,
+//       require: true,
+//     },
+//   },
+//   {
+//     timestamps: true
+//   }
 
-);
-const SignUp =  mongoose.model('SignUp',SignUpSchema);
-module.exports = SignUp;
+
+// );
+// const SignUp =  mongoose.model('SignUp',SignUpSchema);
+// module.exports = {Login}; // damn
 
 
 const studentSchema = new mongoose.Schema(
@@ -206,29 +206,6 @@ const courseSchema = new mongoose.Schema(
 );
 
 const Course  = mongoose.model("Course", courseSchema);
-
-// User Login Routes
-
-// app.get('/user/login',async(req,res)=>{
-//   try{
-//     const User = await Login.find().sort({gmail: 1});
-//     logger.info(`Retrieved ${User.length} successfully`);
-//     res.json(User);
-//   } catch(error){
-//     logger.error('failed fetching User');
-//     res.status(500).json({message: error.message})
-//   }
-//   // res.render('user/login');
-// });
-
-// app.post('/user/login',(req,res)=>{
-
-//   res.render("login"); // do it later
-// });
-
-
-
-
 
 //Course Routes
 

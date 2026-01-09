@@ -1,10 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const SignUp = require('../server');
-
-
-
-
+const { User } = require('../schema/userschema.js');
 
 router.get('/login',async(req,res)=>{
     // res.send('this is login page from user');
@@ -17,16 +13,22 @@ router.get('/signup',async(req,res)=>{
     
 });
 
+router.post('/login',async(req,res)=>{
+    // tim kiem nguoi dung
+    const user = User.find({ gmail: req.body.gmail, password: req.body.password });
+    console.log(user);
+    // gui l
+    
+});
+
 
 router.post('/signup',async(req,res)=>{
-  try {
-    const user = new SignUp(req.body);
+    // luu thong tin nguoi dung OK
+    const user = new User({ gmail: req.body.gmail, password: req.body.password });
     const savedUser = await user.save();
-
-    res.json(savedUser);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
+    // tra lai ket qua nguoi dung
+    res.json(savedUser); // cai nay la duoc roi
 });
 
 module.exports = router;
+//test lai
