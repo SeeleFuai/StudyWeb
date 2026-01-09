@@ -1,29 +1,45 @@
+// init setup
 const express = require("express");
-const mongoose = require("mongoose");
+const app = express();
+const mongoose = require('mongoose');
 const cors = require("cors");
 require("dotenv").config();
 const morgan = require("morgan");
 const winston = require("winston");
-const path = require('path');
-const hbs = require('hbs');
-const { type } = require("os");
-const templatePath = path.join(__dirname,'../Front/html');
-
-
-const app = express();
+const { connect } = require("mongoose");
+const db = require("./db/db");
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static("public"));
+
+// hbs set up
+const path = require('path');
+const hbs = require('hbs');
+const { type } = require("os");
+const templatePath = path.join(__dirname,'../Front/views');
+
 app.set('view engine','hbs');
 app.set('views',templatePath);
+app.use(express.static("Front")); //default: public
 
-mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/studyweb")
-  .then(() => console.log("Connected to MongoDB"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+app.use(express.static(path.join(__dirname, '../Front')));
+app.use(express.static(path.join(__dirname, '../Back')));
 
-  
+//DB
+app.use(
+  morgan(":method :url :status :response-time ms - :res[content-length]")
+);
+db() ;
+
+
+// Routes for admin and user
+const userRouter = require('./routes/user');
+const adminRouter = require('./routes/admin');
+
+
+app.use('/user',userRouter);
+app.use('/admin',adminRouter);
+
 // Configure Winston Logger
 const logger = winston.createLogger({
   level: "info",
@@ -43,9 +59,7 @@ const logger = winston.createLogger({
   ],
 });
 
-app.use(
-  morgan(":method :url :status :response-time ms - :res[content-length]")
-);
+
 
 
 app.get('/',(req,res)=>{
@@ -108,7 +122,7 @@ const LogInSchema = new mongoose.Schema(
 );
 
 const Login =  mongoose.model('Login',LogInSchema);
-// module.exports = Login;
+module.exports = Login;
 
 const SignUpSchema = new mongoose.Schema(
   {
@@ -127,7 +141,7 @@ const SignUpSchema = new mongoose.Schema(
 
 );
 const SignUp =  mongoose.model('SignUp',SignUpSchema);
-// module.exports = SignUp;
+module.exports = SignUp;
 
 
 const studentSchema = new mongoose.Schema(
@@ -190,9 +204,9 @@ const courseSchema = new mongoose.Schema(
 
 const Course  = mongoose.model("Course", courseSchema);
 
-//Login Routes
+// User Login Routes
 
-app.get('/api/login',async(req,res)=>{
+app.get('/user/login',async(req,res)=>{
   try{
     const User = await Login.find().sort({gmail: 1});
     logger.info(`Retrieved ${User.length} successfully`);
@@ -201,44 +215,28 @@ app.get('/api/login',async(req,res)=>{
     logger.error('failed fetching User');
     res.status(500).json({message: error.message})
   }
+  // res.render('user/login');
 });
 
-app.post('/api/login',(req,res)=>{
+app.post('/user/login',(req,res)=>{
 
-  res.render("login");
+  res.render("login"); // do it later
 });
 
 //Sign Up Routes
 
-app.get('/api/signup', async(req,res)=>{
-  try{
-    const User = await SignUp.find().sort({gmail: 1});
-    logger.info(`Retrieved ${User.length} successfully`);
-    res.json(User);
+// app.get('/signup', async(req,res)=>{
+//   try{
+//     const User = await SignUp.find().sort({gmail: 1});
+//     logger.info(`Retrieved ${User.length} successfully`);
+//     res.json(User);
 
-  } catch(error){
-    logger.error('failed fetching newUser');
-    res.status(500).json({message: error.message})
-  }
+//   } catch(error){
+//     logger.error('failed fetching newUser');
+//     res.status(500).json({message: error.message})
+//   }
+// });
 
-});
-
-app.post('/api/signup',async (req,res)=>{
-  try{
-    const newUser = await SignUp(req.body);
-    logger.info(`New User Created successfully:`,{
-      gmail: newUser.gmail,
-      password: newUser.password,
-    });
-    res.status(201).json(newUser);
-    res.render("main");
-
-  } catch(error) {
-    logger.error('failed creating new User');
-    res.status(400).json({message: error.message})
-
-  }
-});
 
 
 

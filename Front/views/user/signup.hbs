@@ -1,0 +1,34 @@
+
+
+<link rel="stylesheet" href="../css/login.css">
+
+<main>
+    <div class="wrapper">
+        <form onsubmit="formValidate()">
+            <h2>Sign Up</h2>
+            <div class="input-field">
+                <input type="text" id="gmail" required>
+                <label>Enter your gmail</label>
+            </div>
+            <div class="input-field">
+                <input type="password" id="password" required>
+                <label>Enter your password</label>
+            </div>
+            <div class="input-field">
+                <input type="password" id="confirmpassword" required>
+                <label>Confirm your password</label>
+            </div>
+            <div class="forget">
+                <label for="remember">
+                    <input type="checkbox" id="remember">
+                    <p>Remember me</p>
+                </label>
+                <a href="#">Forgot password?</a>
+            </div>
+            <button type="submit">Log In</button>
+            <div class="register">
+                <p>Don't have an account? <a href="#">Register</a></p> 
+            </div>
+        </form>
+    </div>
+</main>
