@@ -64,7 +64,7 @@ const logger = winston.createLogger({
 
 
 
-app.get('/main',(req,res)=>{
+app.get('/user/main',(req,res)=>{
   res.render("user/main");
 });
 

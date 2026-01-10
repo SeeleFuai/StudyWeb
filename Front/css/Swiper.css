@@ -15,10 +15,12 @@
 }
 
 .swiper-slide {
-  width: 90%;
+  width: 100%;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 25px 0px;
 }
 
 .swiper-pagination-bullet{

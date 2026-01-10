@@ -3,7 +3,7 @@ const { User } = require('../schema/userschema.js');
 const API_BASE_URL = "http://localhost:3000";
 const bcrypt = require('bcrypt');
 const saltround = 10;
-
+const swal = require('sweetalert2');
 
 const SignUpUser = async (req,res) =>{
     try{
@@ -15,6 +15,7 @@ const SignUpUser = async (req,res) =>{
         }
 
         const hashedPassword = await bcrypt.hash(password,saltround);
+        
         const newUser = new User({ gmail, password: hashedPassword});
         await newUser.save();
         
@@ -44,8 +45,8 @@ const LoginUser = async(req,res)=>{
             console.log('password incorrect');
             return res.render('user/login',{message:'password incorrect'})
         } 
-        res.render('user/main',{message: 'Login ok'});
-    
+        // res.render('user/main',{message: 'Login ok'});
+        res.redirect('main');
     
     }   catch(error){
         res.status(400).json({message: error.message});
