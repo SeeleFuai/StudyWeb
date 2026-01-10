@@ -1,49 +1,32 @@
+
+
 const API_BASE_URL = "http://localhost:3000";
+document.getElementById('SignupForm').addEventListener('submit',formValidate)
 
-const SignUpForm = document.getElementById('SignupForm');
+const message = document.getElementById('message').value;
+if(message){
+    swal.fire(message);
+}
 
 
-document.addEventListener('DOMContentLoaded',async () =>{
-    SignUpForm.addEventListener('submit',formValidate);    
-});
 
 function formValidate(e){
-    e.preventDefault();
+    e.preventDefault(); 
+    
     var gmail = document.getElementById('gmail').value;
     var password = document.getElementById('password').value;
     var confirmpassword = document.getElementById('confirmpassword').value;
     if (gmail == "" || password == "" || confirmpassword == ""){
-        swal.fire('pls full fill');
+        swal.fire("Please Full Fill");
+        return false;
     }
     else if(password != confirmpassword) {
-        swal.fire('password not match');
-    }
-    // e.target.submit();
-    const userData = {
-        gmail:document.getElementById('gmail').value,
-        password:document.getElementById('password').value,
-    }
-    createUser(userData);
-
+        swal.fire("Password Do Not Match");
+    
+        return false;
+    };
+    console.log('ok');
+    e.target.submit();
+    return true;
+    
 }
-
-
-//
-async function createUser(userdata) {
-  const response = await fetch(`${API_BASE_URL}/user/signup`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(userdata),
-  });
-
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.message || "Failed to create student");
-  }
-  console.log('fetched')
-  // thieu await
-  const result = await response.json();
-  console.log(result)
-  return result;
-}
-

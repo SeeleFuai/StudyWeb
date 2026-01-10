@@ -6,9 +6,8 @@ router.get('/login',async(req,res)=>{
     // res.send('this is login page from admin');
 });
 
-router.get('/signup',async(req,res)=>{
-    // res.send('this is signup page from admin');
-    res.render('admin/signup')
+router.get('/home', async(req,res)=>{
+    res.render('admin/home');
 });
 
 module.exports = router;

@@ -8,10 +8,9 @@ const morgan = require("morgan");
 const winston = require("winston");
 const { connect } = require("mongoose");
 const db = require("./db/db");
-
 app.use(cors());
-app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
 // hbs set up
 const path = require('path');
@@ -65,10 +64,9 @@ const logger = winston.createLogger({
 
 
 
-app.get('/',(req,res)=>{
-  res.render("login");
+app.get('/main',(req,res)=>{
+  res.render("user/main");
 });
-
 
 
 // Custom API Logger Middleware

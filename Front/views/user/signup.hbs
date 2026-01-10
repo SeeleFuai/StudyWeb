@@ -4,18 +4,19 @@
 
 <main>
     <div class="wrapper">
-        <form id="SignupForm">
+        <form id="SignupForm" method="post" action="/user/signup" >
+            <input type="text" name="message" id="message" value="{{{message}}}" style="z-index: -9999;">
             <h2>Sign Up</h2>
             <div class="input-field">
-                <input type="text" id="gmail" >
+                <input type="text" id="gmail" name="gmail">
                 <label>Enter your gmail</label>
             </div>
             <div class="input-field">
-                <input type="password" id="password" >
+                <input type="password" id="password" name="password">
                 <label>Enter your password</label>
             </div>
             <div class="input-field">
-                <input type="password" id="confirmpassword" >
+                <input type="password" id="confirmpassword" name="confirmpassword">
                 <label>Confirm your password</label>
             </div>
             <div class="forget">
@@ -31,6 +32,6 @@
             </div>
         </form>
     </div>
-    <script src="../js/signup.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/signup.js"></script>
 </main>

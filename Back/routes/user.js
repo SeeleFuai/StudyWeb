@@ -1,34 +1,31 @@
 const express = require('express');
 const router = express.Router();
 const { User } = require('../schema/userschema.js');
+const { SignUpUser, loadSighUp, loadLogIn, LoginUser } = require('../controller/userController.js');
 
-router.get('/login',async(req,res)=>{
-    // res.send('this is login page from user');
-    res.render('user/login');
-});
+const API_BASE_URL = "http://localhost:3000";
+router.get('/login',loadLogIn);
 
-router.get('/signup',async(req,res)=>{
-    // res.send('this is login page from user');
-    res.render('user/signup');
-    
-});
+router.get('/signup', loadSighUp);
 
-router.post('/login',async(req,res)=>{
-    // tim kiem nguoi dung
-    const user = User.find({ gmail: req.body.gmail, password: req.body.password });
-    console.log(user);
-    // gui l
-    
+router.get('/ok', async(req,res)=>{
+    res.render('user/main');
 });
 
 
-router.post('/signup',async(req,res)=>{
-    // luu thong tin nguoi dung OK
-    const user = new User({ gmail: req.body.gmail, password: req.body.password });
-    const savedUser = await user.save();
-    // tra lai ket qua nguoi dung
-    res.json(savedUser); // cai nay la duoc roi
-});
+router.post('/login',LoginUser);
+
+
+router.post('/signup', SignUpUser);
+
+// router.post('/signup',async(req,res)=>{
+//     try{
+//         const user = new User(req.body);
+//         const savedUser = await user.save();
+//         res.status(201).json(savedUser);
+//     } catch(error){
+//         res.status(400).json({message: error.message});
+//     }
+// });
 
 module.exports = router;
-//test lai
