@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Kết quả tìm kiếm khóa học</title>
+  <link rel="stylesheet" href="../css/courseHtml.css">
+  <link rel="stylesheet" href="../css/course_swiper.css">
+  <link rel="stylesheet" href="../css/course_card.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <h1>Danh mục Khóa Học</h1>
+    <nav>
+      <a href="index.html">Trang chính</a>
+      <a href="course.html">Khóa học</a>
+    </nav>
+  </header>
+
+  <main class="course-page">
+    <!-- Sidebar Filter -->
+    <aside class="filter-sidebar">
+      <h3><i class="fas fa-filter"></i> Bộ lọc</h3>
+      <div class="filter-group">
+        <h4><i class="fas fa-graduation-cap"></i> Mức độ học tập</h4>
+        <label><input type="checkbox" value="Beginner"> Beginner</label>
+        <label><input type="checkbox" value="Intermediate"> Intermediate</label>
+        <label><input type="checkbox" value="Advanced"> Advanced</label>
+      </div>
+      <div class="filter-group">
+        <h4><i class="fas fa-clock"></i> Thời gian học</h4>
+        <label><input type="checkbox" value="short"> Dưới 3 giờ</label>
+        <label><input type="checkbox" value="medium"> 3–6 giờ</label>
+        <label><input type="checkbox" value="long"> Trên 6 giờ</label>
+      </div>
+      <div class="filter-group">
+        <h4><i class="fas fa-star"></i> Đánh giá</h4>
+        <label><input type="checkbox" value="high"> Trên 4.5 ★</label>
+        <label><input type="checkbox" value="mid"> 4.0 – 4.5 ★</label>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <section class="results-content">
+      <div class="results-header">
+        <h2>Kết quả tìm kiếm cho: <span id="search-keyword"></span></h2>
+      </div>
+      
+      <h3>Kết quả liên quan nhất</h3>
+      <!-- Swiper -->
+      <div class="swiper top-results-swiper">
+        <div class="swiper-wrapper" id="swiper-results">
+          <!-- Các card sẽ render bằng JS -->
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <h3>Các khóa học khác</h3>
+      <!-- Grid -->
+      <div class="courses-grid" id="grid-results">
+        <!-- Các card sẽ render bằng JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script src="../js/course.js"></script>
+  <script src="../js/searching-course.js"></script>
+</body>
+</html>

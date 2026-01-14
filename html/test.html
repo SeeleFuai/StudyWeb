@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learning Tracks - Light Mode</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
+
+
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/course_swiper.css">
+  <link rel="stylesheet" href="../css/test.css">
+  <link rel="stylesheet" href="../css/footer.css">
+
+</head>
+<body>
+  <header id="main-header" class="sticky-header">
+      <div class="header-inner">
+          <div class="logo">CodeisLife</div>
+          <nav class="nav-links">
+              <a href="#">Python</a>
+              <a href="#">Data Analytics</a>
+              <a href="#">Web Development</a>
+          </nav>
+          <div class="header-actions">
+          <input type="text" placeholder="Tìm kiếm..." class="search-input" />
+          <button class="login-btn">Đăng nhập</button>
+          </div>
+      </div>
+  </header>
+
+  <main class="container">
+    <section class="container">
+        <div class="header">
+            <span class="eyebrow">Top-rated AI & Data courses</span>
+            <h1 class="title">Lộ trình học cho mọi mục tiêu</h1>
+            <p class="subtitle">Ba lộ trình bắt đầu thân thiện cho người mới: Python, Phân tích dữ liệu và Web Development. Mỗi lộ trình có bài học, nhiệm vụ và đánh giá rõ ràng.</p>
+        </div>
+    </section>
+    <section class="grid" aria-label="Learning tracks">
+      <!-- Python -->
+      <article class="card" aria-labelledby="python-title">
+        <div class="card-head">
+          <div class="icon">Py</div>
+          <h2 id="python-title" class="card-title">Python</h2>
+        </div>
+
+        <span class="badge">Beginner-friendly</span>
+
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-label">Khóa học</span>
+            <span class="stat-value">20</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Nhiệm vụ</span>
+            <span class="stat-value">107</span>
+          </div>
+        </div>
+
+        <div class="rating" aria-label="Đánh giá trung bình 4.6">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span class="rating-text">4.6 (13,262)</span>
+        </div>
+        
+        <p class="learners"><i class="fa fa-graduation-cap" aria-hidden="true"></i> 192,563 người học</p>
+      </article>
+
+      <!-- Data Analytics -->
+      <article class="card" aria-labelledby="data-title">
+        <div class="card-head">
+          <div class="icon">DA</div>
+          <h2 id="data-title" class="card-title">Data Analytics</h2>
+        </div>
+
+        <span class="badge">Beginner-friendly</span>
+
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-label">Khóa học</span>
+            <span class="stat-value">33</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Nhiệm vụ</span>
+            <span class="stat-value">458</span>
+          </div>
+        </div>
+
+        <div class="rating" aria-label="Đánh giá trung bình 4.6">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span class="rating-text">4.6 (5,045)</span>
+        </div>
+
+        <p class="learners"><i class="fa fa-graduation-cap" aria-hidden="true"></i> 192,563 người học</p>
+      </article>
+
+      <!-- Web Development -->
+      <article class="card" aria-labelledby="web-title">
+        <div class="card-head">
+          <div class="icon">WD</div>
+          <h2 id="web-title" class="card-title">Web Development</h2>
+        </div>
+
+        <span class="badge">Beginner-friendly</span>
+
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-label">Khóa học</span>
+            <span class="stat-value">99</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Nhiệm vụ</span>
+            <span class="stat-value">976</span>
+          </div>
+        </div>
+
+        <div class="rating" aria-label="Đánh giá trung bình 4.6">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span class="rating-text">4.6 (1,126)</span>
+        </div>
+
+        <p class="learners"><i class="fa fa-graduation-cap" aria-hidden="true"></i> 192,563 người học</p>
+      </article>
+    </section>
+
+    <!-- Swiper Courses Section -->
+    <section class="courses-swiper-section">
+        <div class="courses-header">
+          <h2>Khóa học AI & Dữ liệu được đánh giá cao</h2>
+
+          <input type="search" class="course-search" placeholder="Bạn muốn tìm kiếm khóa học nào?" />
+
+          <div class="courses-subheader">
+            <h3 class="top-results">Kết quả tìm kiếm</h3>
+            <a href="#catalog" class="catalog-link">Xem toàn bộ danh mục</a>
+          </div>
+        </div>
+        <h3></h3>
+        <div class="swiper courses-swiper">
+            <div class="swiper-wrapper">
+              <!-- Course Card -->
+
+              <div class="course-card swiper-slide">
+                <!-- Header -->
+                <div class="course-header">
+                  <span class="course-label">Khóa Học</span>
+                  <h3 class="course-title">Lập Trình Python Cơ Bản</h3>
+                </div>
+
+                <!-- Body -->
+                <div class="course-body">
+                  <p class="course-desc">Khóa học giúp bạn làm quen với cú pháp Python và xây dựng ứng dụng đơn giản.</p>
+                  <div class="course-meta">
+                    <div class="duration-chapters">
+                      <i class="fas fa-clock"></i> 6 Giờ &nbsp; | &nbsp;
+                      <i class="fas fa-book"></i> 32 Chương
+                    </div>
+                    <div class="rating">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                      <span class="score">4.6 (1850 đánh giá)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="course-footer">
+                  <span class="level">Beginner-friendly</span>
+                  <span class="studying-now"><i class="fas fa-user-graduate"></i>74 người đang học</span>
+                </div>
+              </div>
+
+              <!-- Khóa học 1 -->
+              <div class="course-card swiper-slide">
+                <div class="course-header">
+                  <span class="course-label">Khóa Học</span>
+                  <h3 class="course-title">TypeScript Cho Frontend Developer</h3>
+                </div>
+                <div class="course-body">
+                  <p class="course-desc">Khóa học giúp bạn nắm vững TypeScript để viết code an toàn và dễ bảo trì hơn.</p>
+                  <div class="course-meta">
+                    <div class="duration-chapters">
+                      <i class="fas fa-clock"></i> 5 Giờ &nbsp; | &nbsp;
+                      <i class="fas fa-book"></i> 25 Chương
+                    </div>
+                    <div class="rating">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <span class="score">4.4 (980 đánh giá)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="course-footer">
+                  <span class="level">Intermediate</span>
+                  <span class="studying-now"><i class="fas fa-user-graduate"></i>68 người đang học</span>
+                </div>
+              </div>
+
+              <!-- Khóa học 2 -->
+              <div class="course-card swiper-slide">
+                <div class="course-header">
+                  <span class="course-label">Khóa Học</span>
+                  <h3 class="course-title">Kotlin Cho Android</h3>
+                </div>
+                <div class="course-body">
+                  <p class="course-desc">Học cách xây dựng ứng dụng Android hiện đại với Kotlin, ngôn ngữ chính thức của Google.</p>
+                  <div class="course-meta">
+                    <div class="duration-chapters">
+                      <i class="fas fa-clock"></i> 7 Giờ &nbsp; | &nbsp;
+                      <i class="fas fa-book"></i> 33 Chương
+                    </div>
+                    <div class="rating">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                      <i class="far fa-star"></i>
+                      <span class="score">4.3 (1200 đánh giá)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="course-footer">
+                  <span class="level">Intermediate</span>
+                  <span class="studying-now"><i class="fas fa-user-graduate"></i>95 người đang học</span>
+                </div>
+              </div>
+
+              <!-- Khóa học 3 -->
+              <div class="course-card swiper-slide">
+                <div class="course-header">
+                  <span class="course-label">Khóa Học</span>
+                  <h3 class="course-title">Go (Golang) Backend Development</h3>
+                </div>
+                <div class="course-body">
+                  <p class="course-desc">Khóa học giúp bạn xây dựng hệ thống backend hiệu năng cao với Go.</p>
+                  <div class="course-meta">
+                    <div class="duration-chapters">
+                      <i class="fas fa-clock"></i> 6 Giờ &nbsp; | &nbsp;
+                      <i class="fas fa-book"></i> 28 Chương
+                    </div>
+                    <div class="rating">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      <i class="fas fa-star-half-alt"></i>
+                      <span class="score">4.6 (860 đánh giá)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="course-footer">
+                  <span class="level">Intermediate</span>
+                  <span class="studying-now"><i class="fas fa-user-graduate"></i>72 người đang học</span>
+                </div>
+              </div>
+
+              <!-- Khóa học 4 -->
+              <div class="course-card  swiper-slide">
+                <div class="course-header">
+                  <span class="course-label">Khóa Học</span>
+                  <h3 class="course-title">Rust Programming Cơ Bản</h3>
+                </div>
+                <div class="course-body">
+                  <p class="course-desc">Khám phá Rust – ngôn ngữ lập trình an toàn bộ nhớ, hiệu năng cao cho hệ thống hiện đại.</p>
+                  <div class="course-meta">
+                    <div class="duration-chapters">
+                      <i class="fas fa-clock"></i> 8 Giờ &nbsp; | &nbsp;
+                      <i class="fas fa-book"></i> 40 Chương
+                    </div>
+                    <div class="rating">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <span class="score">4.5 (1100 đánh giá)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="course-footer">
+                  <span class="level">Beginner-friendly</span>
+                  <span class="studying-now"><i class="fas fa-user-graduate"></i>56 người đang học</span>
+                </div>
+              </div>
+
+              <!-- Khóa học 5 -->
+              <div class="course-card swiper-slide">
+                <div class="course-header">
+                  <span class="course-label">Khóa Học</span>
+                  <h3 class="course-title">PHP & Laravel Web Development</h3>
+                </div>
+                <div class="course-body">
+                  <p class="course-desc">Xây dựng website và API mạnh mẽ với PHP và framework Laravel phổ biến.</p>
+                  <div class="course-meta">
+                    <div class="duration-chapters">
+                      <i class="fas fa-clock"></i> 9 Giờ &nbsp; | &nbsp;
+                      <i class="fas fa-book"></i> 45 Chương
+                    </div>
+                    <div class="rating">
+                      <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                      <i class="far fa-star"></i>
+                      <span class="score">4.2 (1340 đánh giá)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="course-footer">
+                  <span class="level">Intermediate</span>
+                  <span class="studying-now"><i class="fas fa-user-graduate"></i>81 người đang học</span>
+                </div>
+              </div>
+            </div>
+            <!-- Swiper Navigation -->
+            <!-- <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> -->
+            <div class="swiper-pagination"></div>
+        </div>
+
+
+
+
+    </section>
+
+
+
+
+    <section class="banner" aria-label="Team growth">
+      <h3>Tăng tốc sự phát triển của đội ngũ với lộ trình học thực tiễn</h3>
+      <p>Lộ trình tùy chỉnh, số liệu theo thời gian thực và công cụ theo dõi tiến độ giúp đội của bạn phát triển tự tin.</p>
+      <div class="banner-actions">
+        <button class="btn btn-primary">Khám phá lộ trình</button>
+        <button class="btn">Xem chi tiết</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h4>Chủ đề</h4>
+          <ul>
+            <li>Trí tuệ nhân tạo</li>
+            <li>Trực quan hóa dữ liệu</li>
+            <li>Khoa học dữ liệu</li>
+            <li>Thiết kế</li>
+            <li>Machine Learning</li>
+            <li>Phát triển Web</li>
+            <li>Công cụ lập trình</li>
+            <li>Marketing</li>
+            <li>Frontend</li>
+            <li>Backend</li>
+            <li>Phân tích dữ liệu</li>
+            <li>Lập trình game</li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Công nghệ</h4>
+          <ul>
+            <li>Python</li>
+            <li>SQL</li>
+            <li>HTML/CSS</li>
+            <li>C++</li>
+            <li>R</li>
+            <li>JavaScript</li>
+            <li>Java</li>
+            <li>React</li>
+            <li>C</li>
+            <li>Golang</li>
+            <li>C#</li>
+            <li>Dart</li>
+            <li>ChatGPT</li>
+            <li>Excel</li>
+            <li>Git</li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Lộ trình học</h4>
+          <ul>
+            <li>SQL từ cơ bản đến nâng cao</li>
+            <li>Phân tích & trực quan hóa dữ liệu với Python</li>
+            <li>Python từ cơ bản đến nâng cao</li>
+            <li>Nền tảng Machine Learning</li>
+            <li>Java cơ bản</li>
+            <li>Full Stack Web Development</li>
+            <li>Trở thành lập trình viên React</li>
+            <li>Nền tảng Frontend</li>
+            <li>C++ cho người mới</li>
+            <li>Python nâng cao</li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Dự án thực hành</h4>
+          <ul>
+            <li>Người mới bắt đầu</li>
+            <li>Trung cấp</li>
+            <li>Nâng cao</li>
+          </ul>
+          <h4>Gói học</h4>
+          <ul>
+            <li>Gói trả phí</li>
+            <li>Dành cho nhóm</li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Công ty</h4>
+          <ul>
+            <li>Đánh giá</li>
+            <li>Blog</li>
+            <li>Giới thiệu</li>
+            <li>Liên hệ</li>
+          </ul>
+          <h4>Tài nguyên</h4>
+          <ul>
+            <li>Workspaces</li>
+            <li>Thử thách mã hóa</li>
+          </ul>
+          <h4>Hỗ trợ</h4>
+          <ul>
+            <li>Trung tâm trợ giúp</li>
+            <li>Cảnh báo gian lận</li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Địa chỉ</h4>
+          <p>Ucode Limited<br>Florinis 7,<br>Tầng 2, Greg Tower,<br>1065, Nicosia, Cyprus</p>
+          <h4>Theo dõi chúng tôi</h4>
+          <div class="social-icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin-in"></i>
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-tiktok"></i>
+            <i class="fab fa-discord"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../js/header.js"></script>
+    <script src="../js/swiper.js"></script>
+    <script src="../js/handle-input-search.js"></script>
+</html>

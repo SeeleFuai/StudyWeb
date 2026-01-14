@@ -1,0 +1,132 @@
+/* Reset cơ bản */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* Header */
+.site-header {
+  background: #1565c0;
+  color: #fff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-header h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.site-header nav a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.site-header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Layout chính */
+.course-page {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Sidebar filter */
+.filter-sidebar {
+  width: 250px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.filter-sidebar h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #1565c0;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-group h4 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.filter-group label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+.filter-group input {
+  margin-right: 6px;
+}
+
+/* Content */
+.results-content {
+  flex: 1;
+  width: 70%;
+}
+
+.results-header {
+  margin-bottom: 20px;
+}
+
+.results-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+}
+
+.results-header span {
+  color: #1565c0;
+  font-weight: 700;
+}
+
+
+/* Grid */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+
+
+/* SWIPER */
+
+.swiper {
+  width: 100%;
+}
+
+.swiper-pagination {
+  margin-top: 10px;
+}
+
+.swiper-pagination-bullet {
+  background: #1565c0;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #1565c0;
+}

@@ -1,0 +1,87 @@
+/* Card CSS */
+.course-card {
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.course-header .course-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.course-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 4px 0;
+}
+
+.course-desc {
+  font-size: 14px;
+  color: #555;
+}
+
+.course-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: #333;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stars i {
+  color: #f39c12;
+}
+
+.score {
+  font-weight: 500;
+  color: #333;
+}
+
+.duration-chapters {
+  color: #555;
+}
+
+.duration-chapters i {
+  margin-right: 4px;
+  color: #3498db;
+}
+
+.course-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.level {
+  background: #e8f5e9;
+  color: #2e7d32;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.studying-now {
+  color: #555;
+}
+
+.studying-now i {
+  margin-right: 4px;
+  color: #3498db;
+}
